@@ -28,3 +28,15 @@ http.createServer(function (req, res) {
   res.end("Your IP address seems to be " + addr + "\n");
 }).listen(port, ipaddr);
 console.log("Server running at http://" + ipaddr + ":" + port + "/");
+
+
+///newly added for testing////
+
+var express = require('express'),
+        app = express(),
+        server = require('http').createServer(app),
+        io = require('socket.io').listen(server);
+
+app.get('/', function(req, res){
+   res.sendfile(__dirname + '/index.html');
+});
